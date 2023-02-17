@@ -18,16 +18,6 @@
             type Error = ParseError;
 
             fn try_from(value: &[u8]) -> Result<Self, Self::Error> {
-                match str::from_utf8(buf) {
-                    Ok(request) => {},
-                    Err(_) => return Err(ParseError::InvalidEncoding),
-                }
-
-                match str::from_utf8(buf).or(Err(ParseError::InvalidEncoding)) {
-                    Ok(request) => {},
-                    Err(e) => return Err(e),
-                }
-
                 let request = str::from_utf8(buf)?;
                 unimplemented!();
             }
